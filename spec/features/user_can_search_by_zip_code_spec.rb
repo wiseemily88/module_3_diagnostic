@@ -4,22 +4,28 @@ feature "User can see a search bar at the root page" do
   scenario "and can fill in zip code" do
     visit '/'
 
-    fill_in 'search[q]', with: '80203'
+    fill_in 'search[q:]', with: '80203'
     click_on 'Locate'
 
     expect(page).to have_current_path(search_path(:search => '80203'))
-    
+
+    expect(page).to have_content("Here are your 10 results within 6 miles")
+
+    within ('.results') do
+      expect(page).to have_selector(".result", count: 10)
+    end
+
+    within ('.result') do
+      expect(page). to have_selector('.name')
+      expect(page). to have_selector('.address')
+      expect(page). to have_selector('.fuel_type')
+      expect(page). to have_selector('.distance')
+      expect(page). to have_selector('.acess_time')
+    end
+  end
+end
 
 
 
 
-
-
-As a user
-When I visit "/"
-And I fill in the search form with 80203
-And I click "Locate"
-Then I should be on page "/search" with parameters visible in the url
-Then I should see a list of the 10 closest stations within 6 miles sorted by distance
-And the stations should be limited to Electric and Propane
-And for each of the stations I should see Name, Address, Fuel Types, Distance, and Access Times
+#Then I should see a list of the 10 closest stations within 6 miles sorted by distance - model test
