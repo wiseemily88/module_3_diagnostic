@@ -7,7 +7,11 @@ feature "User can see a search bar at the root page" do
     fill_in 'q', with: '80203'
     click_on 'Locate'
 
-    expect(page).to have_current_path(search_path(:search => '80203'))
+    expect(current_path).to eq('/search')
+
+    url= URI.parse(current_url).to_s
+
+    expect(url).to include('q=80203')
 
     expect(page).to have_content("Here are your 10 results within 6 miles")
 
