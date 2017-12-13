@@ -10,4 +10,7 @@ class Station
     @access_time = attrs[:access_days_time]
   end
 
+  def 10_by_zip
+    
+
 end
