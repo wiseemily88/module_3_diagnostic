@@ -11,7 +11,7 @@ class Station
   end
 
   def self.find_by_zip(zip_code)
-    NrelService.new(zip_code).each do |raw_data|
+    NrelService.new(zip_code).get_json.map do |raw_data|
       Station.new(raw_data)
     end
   end
