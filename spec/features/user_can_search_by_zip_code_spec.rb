@@ -24,7 +24,7 @@ feature "User can see a search bar at the root page" do
       expect(page). to have_selector('.address')
       expect(page). to have_selector('.fuel_type')
       expect(page). to have_selector('.distance')
-      expect(page). to have_selector('.acess_time')
+      expect(page). to have_selector('.access_time')
     end
   end
 end

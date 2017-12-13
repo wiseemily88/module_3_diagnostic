@@ -1,0 +1,11 @@
+<h1> Here are your 10 results within 6 miles </h1>
+<div class='results'>
+  <ul>
+  <% @stations.each do |station| %>
+    <li class='result'><%= station.name %>
+    <li class='result'><%= station.fuel_type %>
+    <li class='result'><%= station.address %>
+    <li class='result'><%= station.distance %>
+    <li class='result'><%= station.access_time %>
+  <% end %>
+</ul>      
