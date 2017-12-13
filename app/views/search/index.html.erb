@@ -2,10 +2,12 @@
 <div class='results'>
   <ul>
   <% @stations.each do |station| %>
-    <li class='result'><%= station.name %>
-    <li class='result'><%= station.fuel_type %>
-    <li class='result'><%= station.address %>
-    <li class='result'><%= station.distance %>
-    <li class='result'><%= station.access_time %>
+  <div class='result'>
+    <li class='name'>Name: <%= station.name %> </li>
+    <li class='fuel_type'> Fuel_type: <%= station.fuel_type %> </li>
+    <li class='address'> Address: <%= station.address %> </li>
+    <li class='distance'> Distance: <%= station.distance %> </li>
+    <li class='access_time'> Access_Time: <%= station.access_time %> </li><br>
+  </div>
   <% end %>
-</ul>      
+</ul>
