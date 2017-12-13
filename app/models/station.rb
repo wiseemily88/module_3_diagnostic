@@ -10,7 +10,10 @@ class Station
     @access_time = attrs[:access_days_time]
   end
 
-  def 10_by_zip
-    
+  def 10_by_zip(zip_code)
+    NrelService.new.map do |raw_data|
+      Station.new(raw_data
+    end
+  end
 
 end
