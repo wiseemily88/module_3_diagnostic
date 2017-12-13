@@ -4,7 +4,7 @@ feature "User can see a search bar at the root page" do
   scenario "and can fill in zip code" do
     visit '/'
 
-    fill_in 'search[q:]', with: '80203'
+    fill_in 'q', with: '80203'
     click_on 'Locate'
 
     expect(page).to have_current_path(search_path(:search => '80203'))
